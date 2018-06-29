@@ -50,15 +50,17 @@ export default class LinearGradient extends PureComponent {
       .join(',');
 
   render() {
+    let {style, children, start, end, locations, colors, ...props} = this.props
     return (
       <View
         style={[
-          this.props.style,
+          style,
           { backgroundImage: `linear-gradient(${this.getAngle()},${this.getColors()})` },
         ]}
         onLayout={this.measure}
+        {...props}
       >
-        {this.props.children}
+        {children}
       </View>
     );
   }
